@@ -1,0 +1,3 @@
+configs:
+  - exp: "@weekly"
+    task: "generate:mutation"
