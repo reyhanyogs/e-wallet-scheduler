@@ -8,6 +8,7 @@ WORKDIR /app
 COPY --from=builder /app/main .
 COPY scheduler.env .
 COPY schedules.yml .
+RUN mkdir logs
 
 EXPOSE 8082
 CMD ["/app/main"]
