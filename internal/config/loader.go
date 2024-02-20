@@ -8,7 +8,7 @@ import (
 )
 
 func Get() *Config {
-	err := godotenv.Load()
+	err := godotenv.Load("scheduler.env")
 	if err != nil {
 		component.Log.Fatalf("Get(Load Config): err = %s", err.Error())
 	}

@@ -28,6 +28,7 @@ func main() {
 		component.Log.Fatalf("Main(NewPeriodicTaskManager): err = %s", err.Error())
 	}
 
+	component.Log.Info("Starting scheduler")
 	if err := manager.Run(); err != nil {
 		component.Log.Fatalf("Main(Run): err = %s", err.Error())
 	}
