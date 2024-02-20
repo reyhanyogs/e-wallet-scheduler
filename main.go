@@ -1,10 +1,10 @@
 package main
 
 import (
-	"log"
 	"time"
 
 	"github.com/hibiken/asynq"
+	"github.com/reyhanyogs/e-wallet-scheduler/internal/component"
 	"github.com/reyhanyogs/e-wallet-scheduler/internal/config"
 )
 
@@ -24,12 +24,11 @@ func main() {
 		PeriodicTaskConfigProvider: &periodicConfig,
 		SyncInterval:               5 * time.Second,
 	})
-
 	if err != nil {
-		log.Fatal("failed to register task: ", err.Error())
+		component.Log.Fatalf("Main(NewPeriodicTaskManager): err = %s", err.Error())
 	}
 
 	if err := manager.Run(); err != nil {
-		log.Fatal("failed to run scheduler: ", err.Error())
+		component.Log.Fatalf("Main(Run): err = %s", err.Error())
 	}
 }

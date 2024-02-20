@@ -1,16 +1,16 @@
 package config
 
 import (
-	"log"
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/reyhanyogs/e-wallet-scheduler/internal/component"
 )
 
 func Get() *Config {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("error when load env %s", err.Error())
+		component.Log.Fatalf("Get(Load Config): err = %s", err.Error())
 	}
 
 	return &Config{
